@@ -43,12 +43,10 @@ app = FastAPI(
 )
 
 # Configure CORS
-# Allow multiple frontend URLs for flexibility
+# Allow frontend URLs including Vercel preview deployments
 allowed_origins = [
-    settings.frontend_url,
     "http://localhost:5173",
-    "https://cash-registry.vercel.app",
-    "https://scout-finance.vercel.app"
+    "https://scout-finance.vercel.app",
 ]
 
 app.add_middleware(
@@ -57,6 +55,8 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    # Allow all Vercel preview URLs (scout-finance-*.vercel.app)
+    allow_origin_regex=r'https://scout-finance-.*\.vercel\.app'
 )
 
 
