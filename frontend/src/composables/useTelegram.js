@@ -3,7 +3,7 @@
  * Provides access to Telegram Web App SDK functionality
  */
 
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, markRaw } from 'vue'
 
 export function useTelegram() {
   const webApp = ref(null)
@@ -12,7 +12,9 @@ export function useTelegram() {
 
   onMounted(() => {
     if (window.Telegram?.WebApp) {
-      webApp.value = window.Telegram.WebApp
+      // Use markRaw to prevent Vue from making Telegram WebApp reactive
+      // This avoids proxy errors with read-only properties like HapticFeedback
+      webApp.value = markRaw(window.Telegram.WebApp)
       initDataUnsafe.value = webApp.value.initDataUnsafe
       initData.value = webApp.value.initData
     }
