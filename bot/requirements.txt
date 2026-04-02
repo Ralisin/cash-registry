@@ -1,5 +1,5 @@
-# Telegram Bot
-python-telegram-bot==20.7
+# Telegram Bot con supporto Webhooks
+python-telegram-bot[webhooks]==20.7
 
 # Configuration
 python-dotenv==1.0.0
