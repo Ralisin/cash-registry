@@ -1,0 +1,119 @@
+{
+  "common": {
+    "save": "Salva",
+    "cancel": "Annulla",
+    "delete": "Elimina",
+    "edit": "Modifica",
+    "confirm": "Conferma",
+    "back": "Indietro",
+    "close": "Chiudi",
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "success": "Successo",
+    "today": "Oggi",
+    "yesterday": "Ieri"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "addTransaction": "Nuova",
+    "history": "Storico",
+    "analytics": "Statistiche",
+    "settings": "Impostazioni"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalBalance": "Saldo Totale",
+    "cash": "Contanti",
+    "card": "Conto",
+    "recentTransactions": "Transazioni Recenti",
+    "noTransactions": "Nessuna transazione",
+    "addTransaction": "Aggiungi Transazione",
+    "transfer": "Trasferimento"
+  },
+  "transaction": {
+    "expense": "Spesa",
+    "income": "Entrata",
+    "transfer": "Trasferimento",
+    "amount": "Importo",
+    "category": "Categoria",
+    "account": "Conto",
+    "note": "Nota",
+    "date": "Data",
+    "selectCategory": "Seleziona categoria",
+    "selectAccount": "Seleziona conto",
+    "cash": "Contanti",
+    "card": "Conto",
+    "addNote": "Aggiungi nota (facoltativo)",
+    "created": "Transazione creata",
+    "updated": "Transazione aggiornata",
+    "deleted": "Transazione eliminata",
+    "deleteConfirm": "Sei sicuro di voler eliminare questa transazione?",
+    "deleteWarning": "Questa azione non può essere annullata."
+  },
+  "transfer": {
+    "title": "Trasferimento",
+    "from": "Da",
+    "to": "A",
+    "amount": "Importo",
+    "created": "Trasferimento effettuato"
+  },
+  "history": {
+    "title": "Storico Transazioni",
+    "filter": "Filtra",
+    "all": "Tutte",
+    "expenses": "Spese",
+    "income": "Entrate",
+    "transfers": "Trasferimenti",
+    "dateRange": "Periodo",
+    "noResults": "Nessuna transazione trovata"
+  },
+  "analytics": {
+    "title": "Statistiche",
+    "period": "Periodo",
+    "totalExpenses": "Spese Totali",
+    "totalIncome": "Entrate Totali",
+    "byCategory": "Per Categoria",
+    "trend": "Andamento",
+    "noData": "Nessun dato disponibile"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "profile": "Profilo",
+    "preferences": "Preferenze",
+    "currency": "Valuta",
+    "language": "Lingua",
+    "darkMode": "Modalità Scura",
+    "initialBalance": "Saldo Iniziale",
+    "editBalance": "Modifica Saldo",
+    "categories": "Gestisci Categorie",
+    "export": "Esporta Dati"
+  },
+  "setup": {
+    "title": "Setup Iniziale",
+    "welcome": "Benvenuto in Scout Finance!",
+    "description": "Imposta i tuoi saldi iniziali per iniziare a tracciare le tue finanze.",
+    "cashBalance": "Saldo Contanti",
+    "cardBalance": "Saldo Conto",
+    "continue": "Continua"
+  },
+  "categories": {
+    "title": "Categorie",
+    "default": "Categorie Predefinite",
+    "custom": "Le Mie Categorie",
+    "add": "Aggiungi Categoria",
+    "name": "Nome",
+    "icon": "Icona",
+    "color": "Colore",
+    "created": "Categoria creata",
+    "updated": "Categoria aggiornata",
+    "deleted": "Categoria eliminata",
+    "deleteConfirm": "Questa categoria è usata in alcune transazioni. Seleziona una categoria sostitutiva."
+  },
+  "errors": {
+    "generic": "Si è verificato un errore",
+    "network": "Errore di connessione",
+    "unauthorized": "Non autorizzato",
+    "notFound": "Non trovato",
+    "insufficientBalance": "Saldo insufficiente"
+  }
+}

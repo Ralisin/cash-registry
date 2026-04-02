@@ -1,0 +1,119 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "confirm": "Confirm",
+    "back": "Back",
+    "close": "Close",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "today": "Today",
+    "yesterday": "Yesterday"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "addTransaction": "New",
+    "history": "History",
+    "analytics": "Analytics",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalBalance": "Total Balance",
+    "cash": "Cash",
+    "card": "Card",
+    "recentTransactions": "Recent Transactions",
+    "noTransactions": "No transactions",
+    "addTransaction": "Add Transaction",
+    "transfer": "Transfer"
+  },
+  "transaction": {
+    "expense": "Expense",
+    "income": "Income",
+    "transfer": "Transfer",
+    "amount": "Amount",
+    "category": "Category",
+    "account": "Account",
+    "note": "Note",
+    "date": "Date",
+    "selectCategory": "Select category",
+    "selectAccount": "Select account",
+    "cash": "Cash",
+    "card": "Card",
+    "addNote": "Add note (optional)",
+    "created": "Transaction created",
+    "updated": "Transaction updated",
+    "deleted": "Transaction deleted",
+    "deleteConfirm": "Are you sure you want to delete this transaction?",
+    "deleteWarning": "This action cannot be undone."
+  },
+  "transfer": {
+    "title": "Transfer",
+    "from": "From",
+    "to": "To",
+    "amount": "Amount",
+    "created": "Transfer completed"
+  },
+  "history": {
+    "title": "Transaction History",
+    "filter": "Filter",
+    "all": "All",
+    "expenses": "Expenses",
+    "income": "Income",
+    "transfers": "Transfers",
+    "dateRange": "Date Range",
+    "noResults": "No transactions found"
+  },
+  "analytics": {
+    "title": "Analytics",
+    "period": "Period",
+    "totalExpenses": "Total Expenses",
+    "totalIncome": "Total Income",
+    "byCategory": "By Category",
+    "trend": "Trend",
+    "noData": "No data available"
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile",
+    "preferences": "Preferences",
+    "currency": "Currency",
+    "language": "Language",
+    "darkMode": "Dark Mode",
+    "initialBalance": "Initial Balance",
+    "editBalance": "Edit Balance",
+    "categories": "Manage Categories",
+    "export": "Export Data"
+  },
+  "setup": {
+    "title": "Initial Setup",
+    "welcome": "Welcome to Scout Finance!",
+    "description": "Set your initial balances to start tracking your finances.",
+    "cashBalance": "Cash Balance",
+    "cardBalance": "Card Balance",
+    "continue": "Continue"
+  },
+  "categories": {
+    "title": "Categories",
+    "default": "Default Categories",
+    "custom": "My Categories",
+    "add": "Add Category",
+    "name": "Name",
+    "icon": "Icon",
+    "color": "Color",
+    "created": "Category created",
+    "updated": "Category updated",
+    "deleted": "Category deleted",
+    "deleteConfirm": "This category is used in some transactions. Select a replacement category."
+  },
+  "errors": {
+    "generic": "An error occurred",
+    "network": "Connection error",
+    "unauthorized": "Unauthorized",
+    "notFound": "Not found",
+    "insufficientBalance": "Insufficient balance"
+  }
+}
