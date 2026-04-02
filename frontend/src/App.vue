@@ -1,6 +1,7 @@
 <template>
   <div id="app" :class="{ 'dark-mode': isDarkMode }">
     <router-view />
+    <DebugPanel />
   </div>
 </template>
 
@@ -8,6 +9,7 @@
 import { computed, onMounted } from 'vue'
 import { useTelegram } from './composables/useTelegram'
 import { useUserStore } from './stores/user'
+import DebugPanel from './components/common/DebugPanel.vue'
 
 const { colorScheme } = useTelegram()
 const userStore = useUserStore()
