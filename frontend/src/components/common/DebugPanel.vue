@@ -32,7 +32,8 @@
 
       <div class="debug-section">
         <h4>Actions</h4>
-        <button @click="testBackend" class="debug-btn">Test Backend</button>
+        <button @click="testBackend" class="debug-btn">Test Backend (Axios)</button>
+        <button @click="testBackendDirect" class="debug-btn">Test Backend (Fetch)</button>
         <button @click="initUser" class="debug-btn">Init User</button>
         <button @click="clearError" class="debug-btn">Clear Error</button>
       </div>
@@ -74,14 +75,53 @@ const testBackend = async () => {
     testResult.value = JSON.stringify(response.data, null, 2)
     lastError.value = null
   } catch (err) {
+    // Detect if it's a CORS error
+    const isCorsError = err.message === 'Network Error' && !err.response
+
     lastError.value = {
       message: err.message,
+      type: isCorsError ? 'CORS Error (backend blocking request)' : 'Network Error',
       response: err.response?.data,
       status: err.response?.status,
       url: err.config?.url,
-      baseURL: err.config?.baseURL
+      baseURL: err.config?.baseURL,
+      headers: err.config?.headers,
+      code: err.code,
+      stack: err.stack
     }
-    testResult.value = 'Error - see Last Error section'
+    testResult.value = isCorsError
+      ? '❌ CORS Error - Backend is blocking the request'
+      : 'Error - see Last Error section'
+  }
+}
+
+const testBackendDirect = async () => {
+  testResult.value = 'Testing with fetch...'
+  const apiUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'
+
+  try {
+    const response = await fetch(`${apiUrl}/`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+    }
+
+    const data = await response.json()
+    testResult.value = JSON.stringify(data, null, 2)
+    lastError.value = null
+  } catch (err) {
+    lastError.value = {
+      message: err.message,
+      type: err.name,
+      apiUrl: apiUrl,
+      origin: window.location.origin
+    }
+    testResult.value = `❌ Fetch Error: ${err.message}`
   }
 }
 
