@@ -22,7 +22,14 @@ const isDarkMode = computed(() => {
 
 onMounted(async () => {
   // Initialize user from Telegram
-  await userStore.initializeUser()
+  try {
+    console.log('Initializing user from Telegram...')
+    await userStore.initializeUser()
+    console.log('User initialized successfully:', userStore.user)
+  } catch (err) {
+    console.error('Failed to initialize user:', err)
+    // Don't block the app, user will be initialized when clicking Continue
+  }
 })
 </script>
 

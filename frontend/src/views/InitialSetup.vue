@@ -108,11 +108,29 @@ const handleSubmit = async () => {
   error.value = null
 
   try {
+    // Check if user is initialized
+    if (!userStore.user?.telegram_id) {
+      console.log('User not initialized, attempting to initialize...')
+      await userStore.initializeUser()
+    }
+
+    // Check again after initialization
+    if (!userStore.user?.telegram_id) {
+      throw new Error('User initialization failed. Please refresh the page.')
+    }
+
     // Initialize balance
+    console.log('Initializing balance with:', {
+      cash_balance: form.value.cashBalance,
+      card_balance: form.value.cardBalance
+    })
+
     await userStore.initializeBalance({
       cash_balance: form.value.cashBalance,
       card_balance: form.value.cardBalance
     })
+
+    console.log('Balance initialized successfully')
 
     // Success feedback
     hapticFeedback('notification', 'success')
