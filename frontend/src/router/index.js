@@ -65,10 +65,42 @@ const router = createRouter({
   ]
 })
 
-// Navigation guard to update Telegram back button
-router.beforeEach((to, from, next) => {
+// Navigation guard to check user state and redirect accordingly
+router.beforeEach(async (to, from, next) => {
   // Update page title
   document.title = to.meta.title ? `${to.meta.title} - Scout Finance` : 'Scout Finance'
+
+  // Import user store (dynamic to avoid circular dependencies)
+  const { useUserStore } = await import('../stores/user')
+  const userStore = useUserStore()
+
+  // Check if user needs setup (only on first navigation to dashboard)
+  if (to.name === 'dashboard' && !from.name) {
+    // Wait for user to be initialized
+    if (!userStore.user) {
+      try {
+        await userStore.initializeUser()
+      } catch (err) {
+        console.error('Failed to initialize user:', err)
+      }
+    }
+
+    // Check if user has balance configured
+    if (!userStore.balance || (userStore.balance.cash_balance === 0 && userStore.balance.card_balance === 0)) {
+      // User needs to set up initial balance
+      next({ name: 'setup' })
+      return
+    }
+  }
+
+  // Prevent going to setup if user already has balance
+  if (to.name === 'setup' && userStore.balance) {
+    if (userStore.balance.cash_balance !== 0 || userStore.balance.card_balance !== 0) {
+      // User already has balance, redirect to dashboard
+      next({ name: 'dashboard' })
+      return
+    }
+  }
 
   // Handle Telegram back button
   if (window.Telegram?.WebApp) {

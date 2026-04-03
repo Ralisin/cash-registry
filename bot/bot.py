@@ -17,7 +17,8 @@ load_dotenv()
 # Configuration
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 BACKEND_API_URL = os.getenv("BACKEND_API_URL", "http://localhost:8000")
-WEB_APP_URL = os.getenv("WEB_APP_URL", "http://localhost:5173")
+# Remove /setup suffix - the frontend router will handle navigation
+WEB_APP_URL = os.getenv("WEB_APP_URL", "http://localhost:5173").rstrip('/setup').rstrip('/')
 WEBHOOK_URL = os.getenv("WEBHOOK_URL", "")  # Empty for polling mode
 
 # Configure logging

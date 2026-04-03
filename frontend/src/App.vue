@@ -22,16 +22,9 @@ const isDarkMode = computed(() => {
   return colorScheme.value === 'dark'
 })
 
-onMounted(async () => {
-  // Initialize user from Telegram
-  try {
-    console.log('Initializing user from Telegram...')
-    await userStore.initializeUser()
-    console.log('User initialized successfully:', userStore.user)
-  } catch (err) {
-    console.error('Failed to initialize user:', err)
-    // Don't block the app, user will be initialized when clicking Continue
-  }
+onMounted(() => {
+  // User initialization is now handled by the router guard
+  // This ensures proper navigation based on user state
 })
 </script>
 
