@@ -43,7 +43,7 @@ app = FastAPI(
 )
 
 # Configure CORS
-# Use regex to allow all Vercel deployments for debugging
+# Allow only scout-finance Vercel deployments (production + previews)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -53,8 +53,8 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-    # Allow all .vercel.app domains
-    allow_origin_regex=r'https://.*\.vercel\.app'
+    # Allow only scout-finance preview deployments (scout-finance-*.vercel.app)
+    allow_origin_regex=r'https://scout-finance-[a-z0-9-]+\.vercel\.app'
 )
 
 

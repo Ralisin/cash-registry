@@ -53,7 +53,7 @@ import { useUserStore } from '../../stores/user'
 import api from '../../services/api'
 
 const userStore = useUserStore()
-const showDebug = ref(true) // Start open
+const showDebug = ref(false) // Start closed - click 🐛 button to open
 const lastError = ref(null)
 const testResult = ref(null)
 
